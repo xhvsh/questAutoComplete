@@ -1,0 +1,413 @@
+/*
+ * Vencord, a Discord client mod
+ * Copyright (c) 2026 Vendicated and contributors
+ * SPDX-License-Identifier: GPL-3.0-or-later
+ */
+
+.vc-quest-ac-button-root {
+    /* mirrors Discord's rail cells: the 72px item overflows the scrollbar-gutter
+       narrowed cell and centers its content at 36px, like listItem cells do */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    margin: 2px 0 4px;
+}
+
+.vc-quest-ac-button-wrap {
+    position: relative;
+    width: 40px;
+    height: 40px;
+}
+
+.vc-quest-ac-button-circle {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    background: var(--background-secondary, #36393f);
+    box-shadow: inset 0 0 0 1px currentcolor;
+    color: var(--interactive-active, #dbdee1);
+    cursor: pointer;
+}
+
+.vc-quest-ac-button-circle:hover {
+    color: #fff;
+}
+
+.vc-quest-ac-button-active {
+    box-shadow: inset 0 0 0 1px var(--brand-experiment-360, #7983f5);
+}
+
+.vc-quest-ac-button-active:hover {
+    color: var(--interactive-active, #dbdee1);
+}
+
+.vc-quest-ac-button-fill {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--brand-experiment-360, #7983f5);
+    transition: height 0.4s ease;
+}
+
+.vc-quest-ac-button-icon {
+    position: relative;
+    z-index: 1;
+    width: 22px;
+    height: 22px;
+}
+
+.vc-quest-ac-button-tooltip {
+    white-space: nowrap;
+    text-align: left;
+    line-height: 1.35;
+}
+
+.vc-quest-ac-button-tooltip-title {
+    font-weight: 600;
+}
+
+.vc-quest-ac-button-tooltip-line {
+    color: var(--text-muted, #b5bac1);
+    font-size: 12px;
+}
+
+.vc-quest-ac-modal-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vc-quest-ac-button-badge {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--status-danger);
+    border: 3px solid var(--background-tertiary);
+    box-sizing: content-box;
+}
+
+.vc-quest-ac-content {
+    --vc-quest-ac-card: var(--background-base-lower, var(--background-secondary, #2b2d31));
+    --vc-quest-ac-track: var(--background-base-lowest, var(--background-tertiary, #1e1f22));
+    --vc-quest-ac-border: var(--border-subtle, var(--background-modifier-accent, rgb(255 255 255 / 8%)));
+    --vc-quest-ac-accent: var(--brand-500, var(--brand-experiment, #5865f2));
+    --vc-quest-ac-positive: var(--status-positive, #23a55a);
+    --vc-quest-ac-warning: var(--status-warning, #f0b232);
+    --vc-quest-ac-danger: var(--status-danger, #f23f42);
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 8px;
+}
+
+.vc-quest-ac-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vc-quest-ac-section-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vc-quest-ac-section-heading {
+    margin: 0;
+}
+
+.vc-quest-ac-section-count {
+    min-width: 20px;
+    padding: 1px 7px;
+    border-radius: 10px;
+    background: var(--vc-quest-ac-card);
+    border: 1px solid var(--vc-quest-ac-border);
+    color: var(--text-muted);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+.vc-quest-ac-divider {
+    margin: 0;
+}
+
+.vc-quest-ac-empty {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px dashed var(--vc-quest-ac-border);
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.vc-quest-ac-about {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.vc-quest-ac-about-warning {
+    color: var(--text-warning, #f0b232);
+}
+
+/* overall progress */
+.vc-quest-ac-overall {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--vc-quest-ac-border);
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--vc-quest-ac-accent) 14%, transparent), transparent 70%),
+        var(--vc-quest-ac-card);
+}
+
+.vc-quest-ac-overall-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.vc-quest-ac-overall-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted, #a3a6aa);
+}
+
+.vc-quest-ac-overall-value {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-strong, var(--text-normal, #dcddde));
+    font-variant-numeric: tabular-nums;
+}
+
+.vc-quest-ac-overall-sub {
+    font-size: 12px;
+    color: var(--text-muted, #a3a6aa);
+}
+
+/* claim banner */
+.vc-quest-ac-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid color-mix(in srgb, var(--vc-quest-ac-positive) 55%, transparent);
+    background:
+        linear-gradient(135deg, color-mix(in srgb, var(--vc-quest-ac-positive) 16%, transparent), transparent 75%),
+        var(--vc-quest-ac-card);
+    font-size: 14px;
+}
+
+.vc-quest-ac-banner-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.vc-quest-ac-banner-title {
+    color: var(--text-strong, var(--text-normal));
+}
+
+.vc-quest-ac-banner-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.vc-quest-ac-banner-note {
+    color: var(--text-warning, #f0b232);
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.vc-quest-ac-banner-actions {
+    display: flex;
+    flex-shrink: 0;
+}
+
+/* quest cards */
+.vc-quest-ac-quest {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid var(--vc-quest-ac-border);
+    background: var(--vc-quest-ac-card);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.vc-quest-ac-quest-running {
+    border-color: var(--vc-quest-ac-accent);
+    box-shadow: 0 0 0 1px var(--vc-quest-ac-accent), 0 4px 16px color-mix(in srgb, var(--vc-quest-ac-accent) 22%, transparent);
+}
+
+.vc-quest-ac-quest-done {
+    opacity: 0.65;
+}
+
+.vc-quest-ac-quest-expiring {
+    border-color: color-mix(in srgb, var(--vc-quest-ac-warning) 70%, transparent);
+}
+
+.vc-quest-ac-quest-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.vc-quest-ac-quest-title {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.vc-quest-ac-quest-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-strong, var(--text-normal));
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.vc-quest-ac-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 6px;
+}
+
+.vc-quest-ac-chip {
+    padding: 1px 8px;
+    border-radius: 10px;
+    background: var(--background-mod-subtle, rgb(255 255 255 / 6%));
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 18px;
+}
+
+.vc-quest-ac-chip-reward {
+    background: color-mix(in srgb, var(--vc-quest-ac-accent) 20%, transparent);
+    color: var(--text-default, var(--text-normal));
+    font-weight: 600;
+}
+
+.vc-quest-ac-chip-warning {
+    background: color-mix(in srgb, var(--vc-quest-ac-warning) 20%, transparent);
+    color: var(--text-warning, #f0b232);
+    font-weight: 600;
+}
+
+/* progress */
+.vc-quest-ac-progress {
+    height: 8px;
+    width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--vc-quest-ac-track);
+}
+
+.vc-quest-ac-progress-large {
+    height: 12px;
+    border-radius: 6px;
+}
+
+.vc-quest-ac-progress-fill {
+    height: 100%;
+    border-radius: inherit;
+    background: var(--vc-quest-ac-accent);
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.vc-quest-ac-progress-fill-active {
+    background-image: linear-gradient(
+        110deg,
+        transparent 30%,
+        rgb(255 255 255 / 28%) 50%,
+        transparent 70%
+    );
+    background-size: 200% 100%;
+    animation: vc-quest-ac-shimmer 1.8s linear infinite;
+}
+
+.vc-quest-ac-progress-fill-done {
+    background-color: var(--vc-quest-ac-positive);
+}
+
+.vc-quest-ac-progress-fill-error {
+    background-color: var(--vc-quest-ac-danger);
+}
+
+@keyframes vc-quest-ac-shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vc-quest-ac-progress-fill-active {
+        animation: none;
+    }
+}
+
+.vc-quest-ac-quest-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.vc-quest-ac-quest-status {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.vc-quest-ac-quest-status-running {
+    color: var(--text-default, var(--text-normal));
+}
+
+.vc-quest-ac-quest-status-error {
+    color: var(--text-danger, var(--vc-quest-ac-danger));
+}
+
+.vc-quest-ac-quest-status-done {
+    color: var(--text-positive, var(--vc-quest-ac-positive));
+    font-weight: 600;
+}
+
+.vc-quest-ac-quest-percent {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-default, var(--text-normal, #dcddde));
+    font-variant-numeric: tabular-nums;
+}
+
+.vc-quest-ac-quest-warning {
+    font-size: 12px;
+    color: var(--text-warning);
+}
