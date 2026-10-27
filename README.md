@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/icon.png" alt="QuestAutoComplete icon" width="128" height="128">
+
 # QuestAutoComplete
 
 **A Quest Manager for [Vencord](https://github.com/Vendicated/Vencord).**
@@ -97,6 +99,7 @@ Restart Discord, open **Settings → Vencord → Plugins** and enable **QuestAut
 | `quests.ts`, `questStore.ts`, `types.ts` | Quest data helpers and types. |
 | `settings.ts`, `PluginInfo.tsx` | Settings and the plugin's about section. |
 | `style.css` | Styles. |
+| `assets/icon.png` | Plugin icon. |
 
 ## Disclaimer
 
