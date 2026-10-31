@@ -21,6 +21,18 @@ Adds a button to the server rail that autocompletes your joined Discord Quests, 
 > [!IMPORTANT]
 > **This project is for educational purposes only.** It exists to study how Discord's Quest system and client internals work. It is not intended to be used to cheat or to violate Discord's Terms of Service, and the author takes no responsibility for how it is used.
 
+## Preview
+
+<div align="center">
+<table>
+  <tr>
+    <td width="33%"><img src="assets/preview1.png" alt="QuestAutoComplete preview 1"></td>
+    <td width="33%"><img src="assets/preview2.png" alt="QuestAutoComplete preview 2"></td>
+    <td width="33%"><img src="assets/preview3.png" alt="QuestAutoComplete preview 3"></td>
+  </tr>
+</table>
+</div>
+
 ## Features
 
 - **Rail button** sitting under Favorites, with a live progress fill, a tooltip showing running quests and time left, and a badge when rewards are ready to claim.
